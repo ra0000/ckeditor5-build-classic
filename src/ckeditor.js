@@ -9,7 +9,6 @@ import AutoLink from '@ckeditor/ckeditor5-link/src/autolink.js';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote.js';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold.js';
 import CKFinderUploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter.js';
-import DataFilter from '@ckeditor/ckeditor5-html-support/src/datafilter.js';
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials.js';
 import FontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor.js';
 import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor.js';
@@ -24,15 +23,11 @@ import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload.js';
 import Indent from '@ckeditor/ckeditor5-indent/src/indent.js';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic.js';
 import Link from '@ckeditor/ckeditor5-link/src/link.js';
-import LinkImage from '@ckeditor/ckeditor5-link/src/linkimage.js';
 import List from '@ckeditor/ckeditor5-list/src/list.js';
 import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed.js';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph.js';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice.js';
-import Table from '@ckeditor/ckeditor5-table/src/table.js';
-import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar.js';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation.js';
-import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline.js';
 
 class Editor extends ClassicEditor {}
 
@@ -44,7 +39,6 @@ Editor.builtinPlugins = [
 	BlockQuote,
 	Bold,
 	CKFinderUploadAdapter,
-	DataFilter,
 	Essentials,
 	FontBackgroundColor,
 	FontColor,
@@ -59,15 +53,11 @@ Editor.builtinPlugins = [
 	Indent,
 	Italic,
 	Link,
-	LinkImage,
 	List,
 	MediaEmbed,
 	Paragraph,
 	PasteFromOffice,
-	Table,
-	TableToolbar,
-	TextTransformation,
-	Underline
+	TextTransformation
 ];
 
 // Editor configuration.
@@ -79,21 +69,20 @@ Editor.defaultConfig = {
 			'fontColor',
 			'fontBackgroundColor',
 			'|',
+			'alignment',
 			'bold',
 			'italic',
-			'underline',
 			'link',
-			'alignment',
 			'bulletedList',
 			'numberedList',
 			'|',
-			'outdent',
-			'indent',
-			'|',
 			'imageUpload',
-			'blockQuote',
-			'insertTable',
 			'mediaEmbed',
+			'blockQuote',
+			'|',
+			'indent',
+			'outdent',
+			'|',
 			'undo',
 			'redo'
 		]
@@ -104,15 +93,7 @@ Editor.defaultConfig = {
 			'imageTextAlternative',
 			'imageStyle:inline',
 			'imageStyle:block',
-			'imageStyle:side',
-			'linkImage'
-		]
-	},
-	table: {
-		contentToolbar: [
-			'tableColumn',
-			'tableRow',
-			'mergeTableCells'
+			'imageStyle:side'
 		]
 	}
 };
